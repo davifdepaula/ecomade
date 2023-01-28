@@ -16,7 +16,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route element={<AuthProvider />}>
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/cadastro" element={<Register />} />
         </Route>

@@ -8,6 +8,7 @@ const NavbarContainer = styled.div`
     justify-content: space-between;
     height: 100vh;
     width: 100px;
+    position: fixed;
     
     div {
         font-size: 20px;
@@ -15,7 +16,7 @@ const NavbarContainer = styled.div`
         text-align: center;
     }
 
-    img {
+    input {
         width: 40px;
         border-radius: 100%
     }

@@ -2,6 +2,7 @@ import React, { useNavigate } from 'react-router-dom';
 import { useCallback, useContext, useState } from 'react';
 import axios from 'axios';
 import AuthContext from '../../contexts/auth.jsx';
+import { LoginContent } from './style.jsx';
 
 export default function Login() {
   const [form, setForm] = useState({
@@ -32,13 +33,13 @@ export default function Login() {
   }), [form, setForm]);
 
   return (
-    <div>
+    <LoginContent>
       <form onSubmit={onSubmit}>
         <input type="email" name="email" id="email" placeholder="E-mail" onChange={handleInputChange} />
         <input type="password" name="password" id="password" placeholder="Senha" onChange={handleInputChange} />
         <button type="submit">Entrar</button>
         {error ? (<p className="error">{error}</p>) : false}
       </form>
-    </div>
+    </LoginContent>
   );
 }
