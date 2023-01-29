@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  .text-dark {
+    color: black;
+  }
+
   #root {
     display: flex;
   }

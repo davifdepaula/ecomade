@@ -11,6 +11,8 @@ function CartProvider() {
 
   const handleCartSize = () => {
     const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+    console.log('totalItems', totalItems);
+    console.log('cart', cart);
     setCartSize(totalItems);
   };
 
@@ -24,9 +26,9 @@ function CartProvider() {
       setCart(cart);
     } else {
       item.quantity = 1;
-      setCart([...cart, item]);
+      cart.push(item);
+      setCart([...cart]);
     }
-
     handleCartSize();
   };
 
@@ -36,10 +38,11 @@ function CartProvider() {
   }
 
   function handleRemove(id) {
-    const index = cart.indexOf((cartItem) => cartItem._id === id);
-    cart.pop(index);
+    const index = cart.findIndex((cartItem) => cartItem._id === id);
+    cart.splice(index, 1);
     setCart([...cart]);
     handlePrice();
+    handleCartSize();
   }
 
   function handleChange(item, quantity) {
@@ -53,6 +56,7 @@ function CartProvider() {
     }
     setCart([...cart]);
     handlePrice();
+    handleCartSize();
   }
 
   const values = useMemo(() => ({

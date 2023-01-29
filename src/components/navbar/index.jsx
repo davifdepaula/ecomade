@@ -8,7 +8,7 @@ import { CartContext } from '../../contexts/cart.jsx';
 export default function Navbar() {
   const navigate = useNavigate();
   const { token } = useContext(AuthContext);
-  const { size } = useContext(CartContext);
+  const { cartSize } = useContext(CartContext);
 
   return (
     <NavbarContainer>
@@ -19,6 +19,7 @@ export default function Navbar() {
         </Link>
         <Link to="/carrinho">
           <ion-icon name="cart-outline" />
+          {cartSize ? <span className="text-dark">{cartSize}</span> : null}
         </Link>
         <ion-icon name="search-outline" />
       </div>
