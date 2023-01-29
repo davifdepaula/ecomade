@@ -8,8 +8,12 @@ import { CartContainer } from './style';
 
 
 export default function Cart() {
-  const {cart, setCart, price, setPrice, handleClick, handleChange, handleRemove, handlePrice} = useContext(CartContext)
+  const {cart, setCart, price, setPrice, size, handleClick, handleChange, handleRemove, handlePrice} = useContext(CartContext)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    size
+  })
 
   useEffect(() => {
     handlePrice()
@@ -20,7 +24,7 @@ export default function Cart() {
       handleChange(item, -1)
     }
     else {
-      handleRemove(item.id)
+      handleRemove(item._id)
     }
   }
 
@@ -28,7 +32,7 @@ export default function Cart() {
     return (
       <CartContainer>
         {cart.map((item) => (
-        <div className="cartBox" key={item.id}>
+        <div className="cartBox" key={item._id}>
           <div className="cartImg">
             <img src={item.image} alt="" />
             <p>{item.title}</p>
@@ -40,8 +44,8 @@ export default function Cart() {
                 <span className='minusButton' onClick={() => updateScreen(item)}><ion-icon name="remove-circle-outline"></ion-icon></span>
             </div>
             <div className='cartRemoveButton'>
-                <span>{(item.price).toFixed(2)} R$</span>
-                <span className='trashButton' onClick={() => handleRemove(item.id)}><ion-icon name="trash-outline"></ion-icon></span>
+                <span>{(item.quantity*item.price).toFixed(2)} R$</span>
+                <span className='trashButton' onClick={() => handleRemove(item._id)}><ion-icon name="trash-outline"></ion-icon></span>
             </div>
           </div>
         </div>

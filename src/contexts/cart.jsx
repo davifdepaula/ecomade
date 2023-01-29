@@ -4,11 +4,26 @@ const CartContext = createContext();
 function CartProvider({ children }){
     const [cart, setCart] = useState([])
     const [price, setPrice] = useState(0)
+    const [size, setSize] = useState(0)
 
+    const handleSize = () => {
+        let cont = 0
+        cart.forEach(e => {
+            cont += e.quantity
+        })
+        setSize(cont)
+        console.log(size)
+        return
+    }
     const handleClick = (item) => {
-        if (cart.indexOf(item) !== -1) return;
+        if (cart.includes(item)) {
+            item.quantity += 1
+            handleSize()
+            return
+        };
+        setCart([...cart, item])
         item.quantity += 1
-        setCart([...cart, item]);
+        handleSize()
       };
     
       function handlePrice(){
@@ -18,7 +33,7 @@ function CartProvider({ children }){
       };
     
       function handleRemove(id){
-        const arr = cart.filter((item) => item.id !== id);
+        const arr = cart.filter((item) => item._id !== id);
         setCart(arr);
         handlePrice();
       };
@@ -38,7 +53,7 @@ function CartProvider({ children }){
 
     return (
         <CartContext.Provider 
-        value = {{cart, setCart, price, setPrice, handleClick, handleChange, handlePrice, handleRemove }}>
+        value = {{cart, setCart, price, setPrice, size, setSize, handleClick, handleChange, handlePrice, handleRemove }}>
             {children}
         </CartContext.Provider>
 

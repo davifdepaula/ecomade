@@ -24,7 +24,7 @@ export default function Products() {
         {
           items.map((item) => {
             return(
-              <div className='item'>
+              <div className='item' key = {item._id}>
                 <img src={item.image} onClick={() => navigate( `/produtos/${item._id}`)} />
                 <div className='title'>{item.name}</div>
                 <div className='description'>{item.description.substring(0, 50)}...</div>
