@@ -13,7 +13,7 @@ export default function Navbar() {
       <div className="top">
         <input type="image" alt="ecomade-logo" src={Logo} onClick={() => navigate('/')} />
         <span onClick={() => navigate("/produtos")}><ion-icon name="home-outline" /></span>
-        <ion-icon name="cart-outline" />
+        <span onClick={() => navigate("/cart")}><ion-icon name="cart-outline" /></span>
         <ion-icon name="search-outline" />
       </div>
       <div>
