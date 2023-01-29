@@ -11,8 +11,8 @@ export default function Navbar() {
   return (
     <NavbarContainer>
       <div className="top">
-        <input type="image" alt="ecomade-logo" src={Logo} onClick={() => navigate('/home')} />
-        <ion-icon name="home-outline" />
+        <input type="image" alt="ecomade-logo" src={Logo} onClick={() => navigate('/')} />
+        <span onClick={() => navigate("/produtos")}><ion-icon name="home-outline" /></span>
         <ion-icon name="cart-outline" />
         <ion-icon name="search-outline" />
       </div>

@@ -9,6 +9,7 @@ import ResetGlobal from './assets/scss/resetStyles.js';
 import Navbar from './components/navbar/index.jsx';
 import AppLayout from './layouts/App/AppLayout.jsx';
 import { AppProvider } from './contexts/app.jsx';
+import Products from './components/produtos/index.js';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Register />} />
+              <Route path="/produtos" element={<Products />} />
             </Route>
           </Route>
         </Route>

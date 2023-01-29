@@ -19,7 +19,7 @@ export default function Home() {
     <Container>
       <h2>Móveis</h2>
       <h1>Ecomade</h1>
-      <button type="button" onClick={() => navigate('/')}>Ver Produtos</button>
+      <button type="button" onClick={() => navigate('/produtos')}>Ver Produtos</button>
     </Container>
   );
 }

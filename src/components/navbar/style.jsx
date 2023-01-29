@@ -8,6 +8,7 @@ const NavbarContainer = styled.div`
   justify-content: space-between;
   height: 100vh;
   width: 80px;
+  position: fixed;
 
   div {
     font-size: 20px;
