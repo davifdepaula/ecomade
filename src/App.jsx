@@ -7,18 +7,23 @@ import Home from './screens/Home/Home.jsx';
 import { AuthProvider } from './contexts/auth.jsx';
 import ResetGlobal from './assets/scss/resetStyles.js';
 import Navbar from './components/navbar/index.jsx';
+import AppLayout from './layouts/App/AppLayout.jsx';
+import { AppProvider } from './contexts/app.jsx';
 
 export default function App() {
   return (
     <BrowserRouter>
       <ResetGlobal />
       <GlobalStyle />
-      <Navbar />
       <Routes>
         <Route element={<AuthProvider />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/cadastro" element={<Register />} />
+          <Route element={<AppProvider />}>
+            <Route element={<AppLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastro" element={<Register />} />
+            </Route>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
