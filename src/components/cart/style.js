@@ -6,12 +6,13 @@ const CartContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px 50px;
-    gap: 15 px;
-    width: 100vw;
+    gap: 15px;
+    width: 100%;
+    padding: 15px 200px;
+    box-sizing: border-box;
 
     .cartBox {
-        width: 50%;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -94,14 +95,6 @@ const CartContainer = styled.div`
         margin: 20px auto;
         background: none;
         gap: 10px;
-    }
-
-    .makeOrderBtn{
-        background: none;
-    }
-
-    .makeOrderBtn:hover{
-        cursor: pointer;
     }
 `;
 

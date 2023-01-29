@@ -6,11 +6,13 @@ import AuthContext from '../../contexts/auth.jsx';
 import { Container, Header, InnerMenu } from './NavbarMobile.styled.js';
 import Logo from '../../assets/images/logo.jpg';
 import AppContext from '../../contexts/app.jsx';
+import { CartContext } from '../../contexts/cart.jsx';
 
 export default function NavbarMobile() {
   const navigate = useNavigate();
   const { token } = useContext(AuthContext);
   const { sidebarIsOpen, setSidebarIsOpen } = useContext(AppContext);
+  const { cartSize } = useContext(CartContext);
 
   const iconClass = useMemo(() => ({ className: 'react-icons' }), []);
 
@@ -34,8 +36,13 @@ export default function NavbarMobile() {
       <Container className={!sidebarIsOpen ? 'hide' : false}>
         <div className="top">
           <input type="image" alt="ecomade-logo" src={Logo} onClick={() => navigate('/home')} />
-          <ion-icon name="home-outline" />
-          <ion-icon name="cart-outline" />
+          <Link to="/produtos">
+            <ion-icon name="home-outline" />
+          </Link>
+          <Link to="/carrinho">
+            <ion-icon name="cart-outline" />
+            {cartSize ? <span className="text-dark">{cartSize}</span> : null}
+          </Link>
           <ion-icon name="search-outline" />
         </div>
         <div>
