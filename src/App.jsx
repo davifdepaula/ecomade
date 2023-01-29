@@ -10,6 +10,7 @@ import Navbar from './components/navbar/index.jsx';
 import AppLayout from './layouts/App/AppLayout.jsx';
 import { AppProvider } from './contexts/app.jsx';
 import Products from './components/produtos/index.js';
+import Product from './components/product/index.js';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Register />} />
               <Route path="/produtos" element={<Products />} />
+              <Route path="/produtos/:id" element={<Product />} />
             </Route>
           </Route>
         </Route>

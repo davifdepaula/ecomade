@@ -1,37 +1,32 @@
 import styled from "styled-components"
 
-export const ProductsContainer = styled.div`
-    align-items: center;
+export const Item = styled.div`
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 10px 100px;
-    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px 100px;   
 
-    .item {
+    img {
+        width: 500px;
+    }
+
+    .informations {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-        font-family: raleway,sans-serif;
         align-items: center;
-        justify-content: center;
-        width: 400px;
-        gap: 10px;
-
-        img {
-            width: 350px;
-            cursor: pointer;
-        }
+        width: 900px;
+        height: 500px;
+        gap: 15px;
+        margin: 15px;
 
         .title{
-            font-size: 16px;
+            font-size: 50px;
         }
 
         .description {
-            font-size: 14px;
+            font-size: 25px;
             color: #a9abac;
-            text-align: center;
+            text-align: start;
         }
 
         .priceItems {
@@ -44,12 +39,13 @@ export const ProductsContainer = styled.div`
             .price{
                 color: blue;
                 text-align: center;
+                font-size: 30px;
             }
 
             ion-icon {
                 cursor: pointer;
                 color: #a9abac;
-                font-size: 25px;
+                font-size: 50px;
 
                 &:hover {
                 color: #000;
@@ -58,5 +54,6 @@ export const ProductsContainer = styled.div`
         }
 
     }
+    }
 
-`
+` 
