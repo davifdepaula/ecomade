@@ -6,13 +6,12 @@ import AuthContext from '../../contexts/auth.jsx';
 import { Container, Header, InnerMenu } from './NavbarMobile.styled.js';
 import Logo from '../../assets/images/logo.jpg';
 import AppContext from '../../contexts/app.jsx';
-import { CartContext } from '../../contexts/cart.jsx';
+import CartIcon from '../CartIcon/CartIcon.jsx';
 
 export default function NavbarMobile() {
   const navigate = useNavigate();
   const { token } = useContext(AuthContext);
   const { sidebarIsOpen, setSidebarIsOpen } = useContext(AppContext);
-  const { cartSize } = useContext(CartContext);
 
   const iconClass = useMemo(() => ({ className: 'react-icons' }), []);
 
@@ -40,8 +39,7 @@ export default function NavbarMobile() {
             <ion-icon name="home-outline" />
           </Link>
           <Link to="/carrinho">
-            <ion-icon name="cart-outline" />
-            {cartSize ? <span className="text-dark">{cartSize}</span> : null}
+            <CartIcon />
           </Link>
           <ion-icon name="search-outline" />
         </div>

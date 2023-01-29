@@ -12,8 +12,8 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  .text-dark {
-    color: black;
+  .text-brown {
+    color: ${(props) => props.theme.brown};
   }
 
   #root {

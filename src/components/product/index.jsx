@@ -1,35 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import Item from './style';
+import AppContext from '../../contexts/app';
+import { CartContext } from '../../contexts/cart';
 
 export default function Product() {
   const [item, setItem] = useState();
   const { id } = useParams();
-  useEffect(() => {
-    const url = process.env.REACT_APP_API_URL;
-    axios.get(`${url}produtos/${id}`)
-      .then((response) => setItem(response.data))
-      .catch((error) => console.log(error.message));
-  }, []);
+  const { setIsLoading } = useContext(AppContext);
+  const { handleClick } = useContext(CartContext);
 
-  if (!item) return <Loading />;
+  useEffect(() => {
+    setIsLoading(true);
+    axios.get(`produtos/${id}`)
+      .then((response) => setItem(response.data))
+      .catch((error) => console.log(error.message))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   return (
     <Item>
-      <img src={item.image} alt={`Produto ${item.title}`} />
+      <img src={item?.image} alt={`Produto ${item?.title}`} />
       <div className="informations">
-        <div className="title">{item.title}</div>
-        <div className="description">{item.description}</div>
+        <div className="title">{item?.title}</div>
+        <div className="description">{item?.description}</div>
         <div className="priceItems">
-          <span className="price">
-            {item.price}
-            {' '}
+          <span className="price text-brown">
             R$
             {' '}
+            {item?.price?.toFixed(2).replace('.', ',')}
           </span>
-          <ion-icon name="cart-outline" />
+          <span onClick={() => handleClick(item)} aria-hidden="true">
+            <ion-icon name="cart-outline" />
+          </span>
         </div>
       </div>
 

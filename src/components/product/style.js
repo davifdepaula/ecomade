@@ -4,7 +4,9 @@ const Item = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin: 20px 100px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
 
   img {
     width: 500px;
@@ -37,7 +39,6 @@ const Item = styled.div`
       width: 84%;
 
       .price{
-        color: blue;
         text-align: center;
         font-size: 30px;
       }

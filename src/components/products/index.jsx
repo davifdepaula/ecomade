@@ -15,8 +15,7 @@ export default function Products() {
 
   useEffect(() => {
     setIsLoading(true);
-    const url = process.env.REACT_APP_API_URL;
-    axios.get(`${url}produtos`)
+    axios.get('produtos')
       .then((response) => setItems(response.data))
       .catch((error) => console.log(error.message))
       .finally(() => setIsLoading(false));

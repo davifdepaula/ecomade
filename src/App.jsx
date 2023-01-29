@@ -1,8 +1,7 @@
 import React from 'react';
 import {
-  BrowserRouter, Route, Routes, useBeforeUnload,
+  BrowserRouter, Route, Routes,
 } from 'react-router-dom';
-import GlobalStyle from './assets/scss/globalStyles.js';
 import Login from './screens/Login/Login.jsx';
 import Register from './screens/Register/Register.jsx';
 import Home from './screens/Home/Home.jsx';
@@ -19,7 +18,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <ResetGlobal />
-      <GlobalStyle />
       <Routes>
         <Route element={<AuthProvider />}>
           <Route element={<AppProvider />}>

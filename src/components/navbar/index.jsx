@@ -3,12 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../contexts/auth.jsx';
 import NavbarContainer from './style.jsx';
 import Logo from '../../assets/images/logo.jpg';
-import { CartContext } from '../../contexts/cart.jsx';
+import CartIcon from '../CartIcon/CartIcon.jsx';
 
 export default function Navbar() {
   const navigate = useNavigate();
   const { token } = useContext(AuthContext);
-  const { cartSize } = useContext(CartContext);
 
   return (
     <NavbarContainer>
@@ -18,8 +17,7 @@ export default function Navbar() {
           <ion-icon name="home-outline" />
         </Link>
         <Link to="/carrinho">
-          <ion-icon name="cart-outline" />
-          {cartSize ? <span className="text-dark">{cartSize}</span> : null}
+          <CartIcon />
         </Link>
         <ion-icon name="search-outline" />
       </div>

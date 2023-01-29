@@ -11,8 +11,6 @@ function CartProvider() {
 
   const handleCartSize = () => {
     const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-    console.log('totalItems', totalItems);
-    console.log('cart', cart);
     setCartSize(totalItems);
   };
 
