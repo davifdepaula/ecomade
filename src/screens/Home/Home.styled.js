@@ -37,6 +37,30 @@ const Container = styled.div`
       font-size: 4rem;
     }
   }
+
+  > button {
+    border-width: 1px;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(0.5em - 1px);
+    padding: 18px 36px;
+    text-align: center;
+    white-space: nowrap;
+    outline: none;
+    border-color: #000;
+    background-color: #000;
+    color: #fff;
+    transition: all .5s;
+    border-radius: 500px;
+    margin-top: 30px;
+    font-size: .8rem;
+    text-transform: uppercase;
+
+    &:hover {
+      box-shadow: 0 14px 26px -12px rgba(0,0,0,.42),0 4px 23px 0 rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);
+      opacity: .8;
+    }
+  }
 `;
 
 export default Container;

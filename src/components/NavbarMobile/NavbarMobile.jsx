@@ -1,6 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { BsLayoutSidebar } from 'react-icons/bs';
+import { Link, useNavigate } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import AuthContext from '../../contexts/auth.jsx';
@@ -48,10 +47,21 @@ export default function NavbarMobile() {
 
       <InnerMenu className={!sidebarIsOpen ? 'hide' : false}>
         <ul>
-          <li>ECOMADE</li>
-          <li>Produtos</li>
-          <li>Pedidos</li>
-          <li>Minha Conta</li>
+          <li>
+            ECOMADE
+            <IconContext.Provider value={iconClass}>
+              <AiOutlineClose onClick={() => setSidebarIsOpen(!sidebarIsOpen)} />
+            </IconContext.Provider>
+          </li>
+          <li>
+            <Link to="/">Produtos</Link>
+          </li>
+          <li>
+            <Link to="/">Pedidos</Link>
+          </li>
+          <li>
+            <Link to="/">Minha Conta</Link>
+          </li>
         </ul>
       </InnerMenu>
     </>

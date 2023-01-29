@@ -134,9 +134,13 @@ export const InnerMenu = styled.div`
       color: white;
       text-transform: uppercase;
       letter-spacing: 6px;
-      margin-bottom: 15px;
       padding: 30px;
       border-bottom: 1px solid #3d4e68;
+
+      .react-icons {
+        float: right;
+        cursor: pointer;
+      }
     }
   }
 `;

@@ -7,6 +7,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Raleway', sans-serif;
   }
 
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
   #root {
     display: flex;
   }
