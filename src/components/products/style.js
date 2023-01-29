@@ -1,13 +1,21 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-export const ProductsContainer = styled.div`
+const ProductsContainer = styled.div`
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px 100px;
     width: 100%;
+    padding: 15px 50px;
+    box-sizing: border-box;
+    gap: 15px;
+
+    @media (max-width: 768px) {
+      padding: 0;
+      padding-top: 70px;
+      justify-content: center;
+    }
 
     .item {
         display: flex;
@@ -16,11 +24,12 @@ export const ProductsContainer = styled.div`
         font-family: raleway,sans-serif;
         align-items: center;
         justify-content: center;
-        width: 400px;
+        max-width: 300px;
+        box-sizing: border-box;
         gap: 10px;
 
         img {
-            width: 350px;
+            width: 100%;
             cursor: pointer;
         }
 
@@ -59,4 +68,6 @@ export const ProductsContainer = styled.div`
 
     }
 
-`
+`;
+
+export default ProductsContainer;

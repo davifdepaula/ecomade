@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-export const CartContainer = styled.div`
+const CartContainer = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -103,4 +103,6 @@ export const CartContainer = styled.div`
     .makeOrderBtn:hover{
         cursor: pointer;
     }
-`
+`;
+
+export default CartContainer;

@@ -2,7 +2,7 @@ import React, { useNavigate } from 'react-router-dom';
 import { useCallback, useContext, useState } from 'react';
 import axios from 'axios';
 import AuthContext from '../../contexts/auth.jsx';
-import { LoginContent } from './style.jsx';
+import LoginContent from './style.jsx';
 
 export default function Login() {
   const [form, setForm] = useState({

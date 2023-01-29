@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../contexts/auth.jsx';
 import NavbarContainer from './style.jsx';
 import Logo from '../../assets/images/logo.jpg';
@@ -12,8 +12,12 @@ export default function Navbar() {
     <NavbarContainer>
       <div className="top">
         <input type="image" alt="ecomade-logo" src={Logo} onClick={() => navigate('/')} />
-        <span onClick={() => navigate("/produtos")}><ion-icon name="home-outline" /></span>
-        <span onClick={() => navigate("/cart")}><ion-icon name="cart-outline" /></span>
+        <Link to="/produtos">
+          <ion-icon name="home-outline" />
+        </Link>
+        <Link to="/carrinho">
+          <ion-icon name="cart-outline" />
+        </Link>
         <ion-icon name="search-outline" />
       </div>
       <div>

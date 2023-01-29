@@ -8,9 +8,12 @@ const Base = styled.div`
   > main {
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
 
     &.desktop {
       width: calc(100% - 80px);
+      margin-left: 80px;
     }
   }
 `;
