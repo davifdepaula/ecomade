@@ -7,13 +7,13 @@ import CartContainer from './style';
 
 export default function Cart() {
   const {
-    cart, setCart, price, setPrice, handleClick, handleChange, handleRemove, handlePrice,
+    cart, setCart, price, setPrice, size, handleClick, handleChange, handleRemove, handlePrice,
   } = useContext(CartContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     handlePrice();
-  });
+  }, []);
 
   function updateScreen(item) {
     if (item.quantity > 1) {

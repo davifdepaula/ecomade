@@ -3,10 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../contexts/auth.jsx';
 import NavbarContainer from './style.jsx';
 import Logo from '../../assets/images/logo.jpg';
+import { CartContext } from '../../contexts/cart.jsx';
 
 export default function Navbar() {
   const navigate = useNavigate();
   const { token } = useContext(AuthContext);
+  const { size } = useContext(CartContext);
 
   return (
     <NavbarContainer>

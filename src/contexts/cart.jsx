@@ -7,11 +7,26 @@ const CartContext = createContext();
 function CartProvider() {
   const [cart, setCart] = useStickyState([], 'cart');
   const [price, setPrice] = useState(0);
+  const [size, setSize] = useState(0);
+
+  const handleSize = () => {
+    let cont = 0;
+    cart.forEach((e) => {
+      cont += e.quantity;
+    });
+    setSize(cont);
+    console.log(size);
+  };
 
   const handleClick = (item) => {
-    if (cart.indexOf(item) !== -1) return;
-    item.quantity += 1;
+    if (cart.includes(item)) {
+      item.quantity += 1;
+      handleSize();
+      return;
+    }
     setCart([...cart, item]);
+    item.quantity += 1;
+    handleSize();
   };
 
   function handlePrice() {
@@ -20,7 +35,7 @@ function CartProvider() {
   }
 
   function handleRemove(id) {
-    const arr = cart.filter((item) => item.id !== id);
+    const arr = cart.filter((item) => item._id !== id);
     setCart(arr);
     handlePrice();
   }
@@ -42,11 +57,24 @@ function CartProvider() {
     setCart,
     price,
     setPrice,
+    size,
     handleClick,
     handleChange,
     handlePrice,
     handleRemove,
-  }), [cart, setCart, price, setPrice, handleClick, handleChange, handlePrice, handleRemove]);
+    handleSize,
+  }), [
+    cart,
+    setCart,
+    price,
+    setPrice,
+    size,
+    handleClick,
+    handleChange,
+    handleSize,
+    handlePrice,
+    handleRemove,
+  ]);
 
   return (
     <CartContext.Provider
