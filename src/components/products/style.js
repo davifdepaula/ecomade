@@ -39,6 +39,7 @@ const ProductsContainer = styled.div`
 
         .title{
             font-size: 16px;
+            font-weight: 500;
         }
 
         .description {
@@ -55,7 +56,6 @@ const ProductsContainer = styled.div`
             width: 84%;
 
             .price{
-                color: blue;
                 text-align: center;
             }
 

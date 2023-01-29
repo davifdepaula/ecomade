@@ -29,17 +29,16 @@ export default function Products() {
               <Link to={`/produtos/${item._id}`}>
                 <img src={item.image} alt={`Product ${item._id}`} />
               </Link>
-              <div className="title">{item.name}</div>
+              <div className="title">{item.title}</div>
               <div className="description">
                 {item.description.substring(0, 50)}
                 ...
               </div>
               <div className="priceItems">
-                <span className="price">
-                  {item.price}
-                  {' '}
+                <span className="price text-brown">
                   R$
                   {' '}
+                  {item.price.toFixed(2).replace('.', ',')}
                 </span>
                 <span onClick={() => handleClick(item)} aria-hidden="true">
                   <ion-icon name="cart-outline" />
