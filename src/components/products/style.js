@@ -4,7 +4,7 @@ const ProductsContainer = styled.div`
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 100%;
     padding: 15px 50px;
@@ -24,9 +24,13 @@ const ProductsContainer = styled.div`
         font-family: raleway,sans-serif;
         align-items: center;
         justify-content: center;
-        max-width: 300px;
+        width: 400px;
         box-sizing: border-box;
         gap: 10px;
+
+        @media (max-width: 768px) {
+          width: 300px;
+        }
 
         img {
             width: 100%;

@@ -7,26 +7,27 @@ const CartContext = createContext();
 function CartProvider() {
   const [cart, setCart] = useStickyState([], 'cart');
   const [price, setPrice] = useState(0);
-  const [size, setSize] = useState(0);
+  const [cartSize, setCartSize] = useStickyState(0, 'cartSize');
 
-  const handleSize = () => {
-    let cont = 0;
-    cart.forEach((e) => {
-      cont += e.quantity;
-    });
-    setSize(cont);
-    console.log(size);
+  const handleCartSize = () => {
+    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+    setCartSize(totalItems);
   };
 
   const handleClick = (item) => {
-    if (cart.includes(item)) {
-      item.quantity += 1;
-      handleSize();
-      return;
+    const itemExists = cart.some((cartItem) => cartItem._id === item._id);
+    if (itemExists) {
+      // eslint-disable-next-line no-return-assign
+      cart.map((cartItem) => (cartItem._id === item._id
+        ? { ...cartItem, quantity: cartItem.quantity += 1 }
+        : cartItem));
+      setCart(cart);
+    } else {
+      item.quantity = 1;
+      setCart([...cart, item]);
     }
-    setCart([...cart, item]);
-    item.quantity += 1;
-    handleSize();
+
+    handleCartSize();
   };
 
   function handlePrice() {
@@ -35,8 +36,9 @@ function CartProvider() {
   }
 
   function handleRemove(id) {
-    const arr = cart.filter((item) => item._id !== id);
-    setCart(arr);
+    const index = cart.indexOf((cartItem) => cartItem._id === id);
+    cart.pop(index);
+    setCart([...cart]);
     handlePrice();
   }
 
@@ -50,6 +52,7 @@ function CartProvider() {
       item.quantity += quantity;
     }
     setCart([...cart]);
+    handlePrice();
   }
 
   const values = useMemo(() => ({
@@ -57,21 +60,21 @@ function CartProvider() {
     setCart,
     price,
     setPrice,
-    size,
+    cartSize,
     handleClick,
     handleChange,
     handlePrice,
     handleRemove,
-    handleSize,
+    handleCartSize,
   }), [
     cart,
     setCart,
     price,
     setPrice,
-    size,
+    cartSize,
     handleClick,
     handleChange,
-    handleSize,
+    handleCartSize,
     handlePrice,
     handleRemove,
   ]);

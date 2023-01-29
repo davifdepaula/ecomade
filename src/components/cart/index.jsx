@@ -7,7 +7,7 @@ import CartContainer from './style';
 
 export default function Cart() {
   const {
-    cart, setCart, price, setPrice, size, handleClick, handleChange, handleRemove, handlePrice,
+    cart, price, handleChange, handleRemove, handlePrice,
   } = useContext(CartContext);
   const navigate = useNavigate();
 
@@ -27,17 +27,16 @@ export default function Cart() {
     return (
       <CartContainer>
         {cart.map((item) => (
-          <div className="cartBox" key={item.id}>
+          <div className="cartBox" key={item._id}>
             <div className="cartImg">
               <img src={item.image} alt="" />
               <p>{item.title}</p>
             </div>
             <div className="buttons">
               <div className="cartButton">
-                <span className="plusButton" onKeyDown={() => handleChange(item, 1)}><ion-icon name="add-circle-outline" /></span>
-                <span className="plusButton" onKeyDown={() => handleChange(item, 1)}><ion-icon name="add-circle-outline" /></span>
+                <span className="plusButton" aria-hidden="true" onClick={() => handleChange(item, 1)}><ion-icon name="add-circle-outline" /></span>
                 <span>{(item.quantity)}</span>
-                <span className="minusButton" onKeyDown={() => updateScreen(item)}><ion-icon name="remove-circle-outline" /></span>
+                <span className="minusButton" aria-hidden="true" onClick={() => updateScreen(item)}><ion-icon name="remove-circle-outline" /></span>
               </div>
               <div className="cartRemoveButton">
                 <span>
@@ -45,7 +44,7 @@ export default function Cart() {
                   {' '}
                   R$
                 </span>
-                <span className="trashButton" onKeyDown={() => handleRemove(item.id)}><ion-icon name="trash-outline" /></span>
+                <span className="trashButton" aria-hidden="true" onClick={() => handleRemove(item._id)}><ion-icon name="trash-outline" /></span>
               </div>
             </div>
           </div>

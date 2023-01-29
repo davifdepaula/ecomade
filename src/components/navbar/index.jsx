@@ -24,7 +24,7 @@ export default function Navbar() {
       </div>
       <div>
         {
-          token ? <span><ion-icon name="log-out-outline" /></span> : <span onKeyDown={() => navigate('/login')}><ion-icon name="person-outline" /></span>
+          token ? <span><ion-icon name="log-out-outline" /></span> : <span aria-hidden="true" onClick={() => navigate('/login')}><ion-icon name="person-outline" /></span>
         }
       </div>
     </NavbarContainer>

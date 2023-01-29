@@ -8,7 +8,7 @@ import AppContext from '../../contexts/app';
 
 export default function Products() {
   const [items, setItems] = useState();
-  const { setCart, handleClick } = useContext(CartContext);
+  const { handleClick } = useContext(CartContext);
   const { setIsLoading } = useContext(AppContext);
 
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ export default function Products() {
                   R$
                   {' '}
                 </span>
-                <span onKeyDown={() => handleClick(item)}>
+                <span onClick={() => handleClick(item)} aria-hidden="true">
                   <ion-icon name="cart-outline" />
                   {' '}
                 </span>
