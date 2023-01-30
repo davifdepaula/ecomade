@@ -58,7 +58,7 @@ export default function Navbar() {
             <Link to="/" onClick={() => setShowInnerMenu(false)}>Pedidos</Link>
           </li>
           <li>
-            <Link to="/" onClick={() => setShowInnerMenu(false)}>Minha Conta</Link>
+            <Link to="/minha-conta" onClick={() => setShowInnerMenu(false)}>Minha Conta</Link>
           </li>
         </ul>
       </InnerMenu>

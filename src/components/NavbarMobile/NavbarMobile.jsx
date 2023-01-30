@@ -74,7 +74,7 @@ export default function NavbarMobile() {
             <Link to="/" onClick={() => setSidebarIsOpen(false)}>Pedidos</Link>
           </li>
           <li>
-            <Link to="/" onClick={() => setSidebarIsOpen(false)}>Minha Conta</Link>
+            <Link to="/minha-conta" onClick={() => setSidebarIsOpen(false)}>Minha Conta</Link>
           </li>
         </ul>
       </InnerMenu>

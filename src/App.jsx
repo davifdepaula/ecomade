@@ -12,6 +12,9 @@ import Products from './components/products/index.jsx';
 import Product from './components/product/index.jsx';
 import { CartProvider } from './contexts/cart.jsx';
 import Auth from './screens/Auth/Auth.jsx';
+import MyAccount from './screens/MyAccount/MyAccount.jsx';
+import RequireAuth from './middlewares/RequireAuth/RequireAuth.jsx';
+import MyAccountEdit from './screens/MyAccount/Edit/MyAccountEdit.jsx';
 
 export default function App() {
   return (
@@ -27,6 +30,11 @@ export default function App() {
                 <Route path="/produtos" element={<Products />} />
                 <Route path="/produtos/:id" element={<Product />} />
                 <Route path="carrinho" element={<Cart />} />
+                <Route element={<RequireAuth />}>
+                  <Route path="minha-conta" element={<MyAccount />} />
+                  <Route path="minha-conta/editar" element={<MyAccountEdit />} />
+                </Route>
+                <Route path="*" element={<Home />} />
               </Route>
             </Route>
           </Route>
