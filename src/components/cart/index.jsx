@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BsCartX, BsBagX } from 'react-icons/bs';
+import { BsBagX } from 'react-icons/bs';
 import { CartContext } from '../../contexts/cart';
 
 import CartContainer from './style';
