@@ -11,7 +11,7 @@ export const Header = styled.div`
   padding: 0 15px;
   height: 50px;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
   position: absolute;
   box-sizing: border-box;
   transform: translateY(0);
