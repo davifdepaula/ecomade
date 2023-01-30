@@ -85,9 +85,19 @@ const CartContainer = styled.div`
 
 
     .emptyCart {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         font-family: 'Roboto', sans-serif;
         font-size: 20px;
         font-weight: 500;
+        height: 100vh;
+        gap: 15px;
+
+        .icon {
+            font-size: 60px;
+        }
     }
 
     .makeOrder {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BsCartX } from 'react-icons/bs';
+import { BsBagX } from 'react-icons/bs';
 import { CartContext } from '../../contexts/cart';
 
 import CartContainer from './style';
@@ -65,11 +65,13 @@ export default function Cart() {
         </>
       ) : (
         <div className="emptyCart">
-          <BsCartX />
+          <span className='icon'><BsBagX /></span>
+          <div>
+          {'  '}
+          Seu carrinho está vazio 
           {' '}
-          Não há itens no carrinho
-          {' '}
-          <BsCartX />
+          </div>
+          <button type="button" className="primary-button" onClick={() => navigate('/produtos')}>Ver Produtos</button>
         </div>
       )}
     </CartContainer>
