@@ -1,30 +1,31 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import swal from 'sweetalert';
 import ProductsContainer from './style';
 import Loading from '../Loading/Loading';
 import { CartContext } from '../../contexts/cart';
-import AppContext from '../../contexts/app';
 
 export default function Products() {
-  const [items, setItems] = useState();
   const { handleClick } = useContext(CartContext);
-  const { setIsLoading } = useContext(AppContext);
 
-  const navigate = useNavigate();
+  const {
+    isLoading, isError, data, error,
+  } = useQuery(['products'], () => axios.get('produtos').then((response) => response.data));
 
-  useEffect(() => {
-    setIsLoading(true);
-    axios.get('produtos')
-      .then((response) => setItems(response.data))
-      .catch((error) => console.log(error.message))
-      .finally(() => setIsLoading(false));
-  }, []);
+  if (isLoading) {
+    return <Loading show />;
+  }
+
+  if (isError) {
+    swal('Erro!', error.message ?? 'Ocorreu um erro inesperado, tente novamente mais tarde...', 'error');
+  }
 
   return (
     <ProductsContainer>
       {
-          items?.map((item) => (
+          data?.map((item) => (
             <div className="item" key={`${item._id}`}>
               <Link to={`/produtos/${item._id}`}>
                 <img src={item.image} alt={`Product ${item._id}`} />
