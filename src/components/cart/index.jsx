@@ -65,11 +65,11 @@ export default function Cart() {
         </>
       ) : (
         <div className="emptyCart">
-          <span className='icon'><BsBagX /></span>
+          <span className="icon"><BsBagX /></span>
           <div>
-          {'  '}
-          Seu carrinho está vazio 
-          {' '}
+            {'  '}
+            Seu carrinho está vazio
+            {' '}
           </div>
           <button type="button" className="primary-button" onClick={() => navigate('/produtos')}>Ver Produtos</button>
         </div>
