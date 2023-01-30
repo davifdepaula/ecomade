@@ -9,12 +9,6 @@ export default function Home() {
 
   const navigate = useNavigate();
 
-  const onLogout = () => {
-    setToken(null);
-    setUser(null);
-    navigate('/');
-  };
-
   return (
     <Container>
       <h2>Móveis</h2>

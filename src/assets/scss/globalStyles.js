@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  b {
+    font-weight: 700;
+  }
+
   .text-brown {
     color: ${(props) => props.theme.brown};
   }
