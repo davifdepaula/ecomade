@@ -2,6 +2,7 @@ import React, { useContext, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { FiArrowLeft } from 'react-icons/fi';
 import AuthContext from '../../contexts/auth.jsx';
 import { Container, Header, InnerMenu } from './NavbarMobile.styled.js';
 import Logo from '../../assets/images/logo.jpg';
@@ -11,7 +12,9 @@ import CartIcon from '../CartIcon/CartIcon.jsx';
 export default function NavbarMobile() {
   const navigate = useNavigate();
   const { token, setToken, setUser } = useContext(AuthContext);
-  const { sidebarIsOpen, setSidebarIsOpen } = useContext(AppContext);
+  const {
+    sidebarIsOpen, setSidebarIsOpen, showBackButton, setShowBackButton,
+  } = useContext(AppContext);
 
   const iconClass = useMemo(() => ({ className: 'react-icons' }), []);
 
@@ -29,6 +32,15 @@ export default function NavbarMobile() {
           <input type="image" alt="ecomade-logo" src={Logo} onClick={() => navigate('/')} />
         </div>
         <div className="right">
+          { showBackButton && (
+            <IconContext.Provider value={iconClass}>
+              <FiArrowLeft onClick={() => {
+                setShowBackButton(false);
+                navigate(-1);
+              }}
+              />
+            </IconContext.Provider>
+          )}
           <IconContext.Provider value={iconClass}>
             { sidebarIsOpen ? (
               <AiOutlineClose onClick={() => setSidebarIsOpen(!sidebarIsOpen)} />

@@ -9,12 +9,13 @@ import AppContext from '../../contexts/app';
 import GlobalStyle from '../../assets/scss/globalStyles';
 
 function AppLayout() {
-  const { windowWidth } = useContext(AppContext);
+  const { windowWidth, sidebarIsOpen } = useContext(AppContext);
 
   const isMobile = windowWidth <= 768;
 
   const theme = {
     brown: '#9c611f',
+    sidebarIsOpen,
   };
 
   return (
