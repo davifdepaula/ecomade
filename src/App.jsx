@@ -15,6 +15,7 @@ import Auth from './screens/Auth/Auth.jsx';
 import MyAccount from './screens/MyAccount/MyAccount.jsx';
 import RequireAuth from './middlewares/RequireAuth/RequireAuth.jsx';
 import MyAccountEdit from './screens/MyAccount/Edit/MyAccountEdit.jsx';
+import Checkout from './components/checkout/index.jsx';
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
                 <Route element={<RequireAuth />}>
                   <Route path="minha-conta" element={<MyAccount />} />
                   <Route path="minha-conta/editar" element={<MyAccountEdit />} />
+                  <Route path="checkout" element={<Checkout />} />
                 </Route>
                 <Route path="*" element={<Home />} />
               </Route>

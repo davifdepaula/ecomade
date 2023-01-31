@@ -6,7 +6,7 @@ const CartContext = createContext();
 
 function CartProvider() {
   const [cart, setCart] = useStickyState([], 'cart');
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useStickyState(0, 'price');
   const [cartSize, setCartSize] = useStickyState(0, 'cartSize');
 
   const handleCartSize = () => {

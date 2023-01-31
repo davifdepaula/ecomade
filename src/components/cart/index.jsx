@@ -60,7 +60,7 @@ export default function Cart() {
           </div>
           <div className="makeOrder">
             <button type="button" className="primary-button" onClick={() => navigate('/produtos')}>Voltar</button>
-            <button type="button" className="primary-button" onClick={() => navigate('/userInfo')}>Continuar</button>
+            <button type="button" className="primary-button" onClick={() => navigate('/checkout')}>Continuar</button>
           </div>
         </>
       ) : (
