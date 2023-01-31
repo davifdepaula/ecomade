@@ -15,7 +15,7 @@ import Auth from './screens/Auth/Auth.jsx';
 import MyAccount from './screens/MyAccount/MyAccount.jsx';
 import RequireAuth from './middlewares/RequireAuth/RequireAuth.jsx';
 import MyAccountEdit from './screens/MyAccount/Edit/MyAccountEdit.jsx';
-import Checkout from './components/checkout/index.jsx';
+import Checkout from './screens/checkout/index.jsx';
 
 export default function App() {
   return (

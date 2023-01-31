@@ -1,14 +1,14 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const CartContainer = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     gap: 15px;
     width: 100%;
-    padding: 10px 200px;
+    padding: 15px 200px;
     box-sizing: border-box;
 
     .cartBox {
@@ -20,15 +20,8 @@ const CartContainer = styled.div`
         border-bottom: 2px solid #000;
         padding-bottom: 5px;
         gap: 15px;
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-        }
-    }
-
-    .cartBox ion-icon {
-        font-size: 25px;
+        font-size: 20px;
+        font-weight: 500;
     }
 
     .cartImg {
@@ -47,17 +40,7 @@ const CartContainer = styled.div`
     margin-left: 10px;
     }
 
-    .cartButton {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .plusButton:hover, .minusButton:hover, .trashButton{
-        cursor: pointer;
-    }
-
-    .cartRemoveButton {
+    .item-control {
         display: flex;
         align-items: center;
         gap: 15px;
@@ -65,8 +48,8 @@ const CartContainer = styled.div`
 
     .total {
         display: flex;
-        align-items: flex-start;
-        margin-top: 5px;
+        align-items: flex-end;
+        margin-top: 15px;
         gap: 20px;
     }
 
@@ -89,7 +72,7 @@ const CartContainer = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-family: 'Alegreya Sans SC', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 20px;
         font-weight: 500;
         height: 100vh;
@@ -108,41 +91,4 @@ const CartContainer = styled.div`
     }
 `;
 
-const Order = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    .cartQuantity, .cartPrice{
-        font-family: 'Alegreya Sans SC', sans-serif;
-        font-weight: 600;
-    }
-
-    .address {
-        align-items: left;
-        border-top: 2px solid;
-        box-sizing: border-box;
-        display: flex;
-        font-weight: 600;
-        justify-content: flex-start;
-        margin: 10px auto;
-        padding-top: 10px;
-    }
-
-    .orderTitle {
-        font-size: 20px;
-        font-weight: 600;
-    }
-
-    .orderBtn {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-    }
-`
-
-export {
-    Order,
-    CartContainer
-}
+export default CartContainer;
