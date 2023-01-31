@@ -12,7 +12,7 @@ export const Header = styled.div`
   height: 50px;
   width: 100%;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
   transform: translateY(0);
   transition: all .3s;
@@ -31,6 +31,11 @@ export const Header = styled.div`
       height: 30px;
       border-radius: 100%
     }
+  }
+
+  > .right {
+    display: flex;
+    gap: 15px;
   }
 
   .react-icons {
@@ -54,7 +59,7 @@ export const Container = styled.div`
   height: 100vh;
   width: 80px;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   transform: translateX(0);
   transition: all .3s;
 
@@ -103,7 +108,7 @@ export const InnerMenu = styled.div`
   height: 100vh;
   width: calc(100% - 80px);
   z-index: 2;
-  position: absolute;
+  position: fixed;
   left: 80px;
   transform: translateX(0);
   transition: all .3s .3s;

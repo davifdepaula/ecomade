@@ -10,6 +10,7 @@ export function AppProvider() {
   const [isLoading, setIsLoading] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+  const [showBackButton, setShowBackButton] = useState(false);
 
   const handleWindowSizeChange = () => {
     setWindowWidth(window.innerWidth);
@@ -33,7 +34,18 @@ export function AppProvider() {
     setWindowWidth,
     sidebarIsOpen,
     setSidebarIsOpen,
-  }), [isLoading, setIsLoading, windowWidth, setWindowWidth, sidebarIsOpen, setSidebarIsOpen]);
+    showBackButton,
+    setShowBackButton,
+  }), [
+    isLoading,
+    setIsLoading,
+    windowWidth,
+    setWindowWidth,
+    sidebarIsOpen,
+    setSidebarIsOpen,
+    showBackButton,
+    setShowBackButton,
+  ]);
 
   return (
     <AppContext.Provider

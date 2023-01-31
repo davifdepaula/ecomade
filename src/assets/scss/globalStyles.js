@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     background: #F0F0F0;
     font-family: 'Raleway', sans-serif;
+    overflow: ${(props) => (props.theme.sidebarIsOpen ? 'hidden' : 'auto')}
   }
 
   a {

@@ -25,7 +25,7 @@ export default function Products() {
   return (
     <ProductsContainer>
       {
-          data?.map((item) => (
+          data && data?.map((item) => (
             <div className="item" key={`${item._id}`}>
               <Link to={`/produtos/${item._id}`}>
                 <img src={item.image} alt={`Product ${item._id}`} />

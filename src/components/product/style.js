@@ -3,26 +3,31 @@ import styled from 'styled-components';
 const Item = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
   align-items: flex-start;
   width: 100%;
-  padding: 30px;
+  padding: 70px;
   box-sizing: border-box;
+  gap: 15px;
 
   img {
-    width: 500px;
+    min-width: 280px;
+    max-width: 425px;
+    width: 35%;
   }
 
   .informations {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 900px;
-    height: 500px;
-    gap: 15px;
+    width: 60%;
+    min-width: 280px;
+    gap: 25px;
     margin: 15px;
 
     .title{
-      font-size: 50px;
+      font-size: 45px;
     }
 
     .description {
@@ -31,12 +36,18 @@ const Item = styled.div`
       text-align: start;
     }
 
+    @media all and (max-width: 767px) {
+      .title, .description {
+        text-align: center;
+      }
+    }
+
     .priceItems {
       align-items: center;
       display: flex;
       justify-content: space-between;
       margin-bottom: 15px;
-      width: 84%;
+      width: 100%;
 
       .price{
         text-align: center;
